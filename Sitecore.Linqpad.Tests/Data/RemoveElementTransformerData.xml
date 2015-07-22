@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <element>
+    <xpath>/data/places/*</xpath>
+    <xml>
+      <![CDATA[
+        <data>
+          <places>
+            <nyc coast="east" />
+            <boston coast="east" />
+            <chicago coast="unknown" />
+            <la coast="west" />
+          </places>
+        </data>
+      ]]>
+    </xml>
+  </element>
+  <element>
+    <xpath>/data/places/*[@coast="east"]</xpath>
+    <xml>
+      <![CDATA[
+        <data>
+          <places>
+            <nyc coast="east" />
+            <boston coast="east" />
+            <chicago coast="unknown" />
+            <la coast="west" />
+          </places>
+        </data>
+      ]]>
+    </xml>
+  </element>
+</data>

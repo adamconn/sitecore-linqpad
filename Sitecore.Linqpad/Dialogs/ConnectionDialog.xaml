@@ -1,0 +1,145 @@
+﻿<Window x:Class="Sitecore.Linqpad.Dialogs.ConnectionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Sitecore Connection"
+    Background="{x:Static SystemColors.ControlBrush}"
+    SizeToContent="Manual"
+    Width="450" 
+    WindowStartupLocation="CenterScreen" Height="510" MaxHeight="510" MinHeight="510"
+    Closing="OnClosing"
+    Loaded="OnLoaded">
+    <StackPanel Margin="7,7,7,-31">
+        <TabControl Height="380" Margin="0,5,0,0">
+            <TabItem TabIndex="200" Header="Basic">
+                <StackPanel Margin="10,20,10,10">
+                    <DockPanel>
+                        <Label TabIndex="100" DockPanel.Dock="Right" Padding="1,1,5,1" IsTabStop="True">
+                            <Hyperlink Name="helpClientUrl" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label DockPanel.Dock="Left" Padding="0,0,0,1">Sitecore client URL:</Label>
+                    </DockPanel>
+
+                    <TextBox TabIndex="102" Name="txtClientUrl" Margin="0,0,0,10" />
+
+                    <DockPanel>
+                        <Label TabIndex="104" DockPanel.Dock="Right" Padding="1,1,5,1" IsTabStop="True">
+                            <Hyperlink Name="helpUsername" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">User name:</Label>
+                    </DockPanel>
+
+                    <TextBox TabIndex="106" Name="txtUsername" Margin="0,0,0,10" />
+
+                    <DockPanel>
+                        <Label TabIndex="108" DockPanel.Dock="Right" Padding="1,1,5,1" IsTabStop="True">
+                            <Hyperlink Name="helpPassword" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">Password:</Label>
+                    </DockPanel>
+
+                    <TextBox TabIndex="110" Name="txtPassword" Margin="0,0,0,10" />
+
+                    <DockPanel>
+                        <Label TabIndex="114" DockPanel.Dock="Right" Padding="1,1,5,1" IsTabStop="True">
+                            <Hyperlink Name="btnBrowseWebRoot" Click="BtnBrowseWebRoot_OnClick">Browse...</Hyperlink>
+                        </Label>
+                        <Label TabIndex="112" DockPanel.Dock="Right" Padding="1,1,20,1" IsTabStop="True">
+                            <Hyperlink Name="helpWebrootPath" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">Path to Sitecore web root:</Label>
+                    </DockPanel>
+
+                    <TextBox TabIndex="116" Name="txtWebrootPath" Margin="0,0,0,10" />
+
+                    <DockPanel>
+                        <Label TabIndex="118" DockPanel.Dock="Right" Padding="1,1,5,1" IsTabStop="True">
+                            <Hyperlink Name="helpContextDatabase" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">Context database:</Label>
+                    </DockPanel>
+
+                    <TextBox TabIndex="120" Name="txtContextDatabase" Margin="0,0,0,10" UndoLimit="150" />
+                </StackPanel>
+            </TabItem>
+            <TabItem TabIndex="200" Header="Advanced">
+                <StackPanel Margin="10,20,10,10">
+                    <DockPanel>
+                        <Label TabIndex="230" DockPanel.Dock="Right" Padding="1,1,5,1">
+                            <Hyperlink Name="browseSearchResultItemType" Click="browseSearchResultItemType_Click">Browse...</Hyperlink>
+                        </Label>
+                        <Label TabIndex="220" DockPanel.Dock="Right" Padding="1,1,20,1">
+                            <Hyperlink Name="resetSearchResultItemType" Click="resetSearchResultItemType_Click">Reset</Hyperlink>
+                        </Label>
+                        <Label TabIndex="210" DockPanel.Dock="Right" Padding="1,1,30,1">
+                            <Hyperlink Name="helpSearchResultItemTypeName" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">Search result type:</Label>
+                    </DockPanel>
+                    <TextBox Name="txtSearchResultItemTypeName" Margin="0,0,0,10" IsReadOnly="True" Background="{x:Null}" TextChanged="txtSearchResultItemTypeName_TextChanged" TabIndex="240" />
+
+                    <DockPanel>
+                        <Label TabIndex="270" DockPanel.Dock="Right" Padding="1,1,5,1">
+                            <Hyperlink Name="browseAppConfigReaderType" Click="browseAppConfigReaderType_Click">Browse...</Hyperlink>
+                        </Label>
+                        <Label TabIndex="260" DockPanel.Dock="Right" Padding="1,1,20,1">
+                            <Hyperlink Name="resetAppConfigReaderType" Click="resetAppConfigReaderType_Click">Reset</Hyperlink>
+                        </Label>
+                        <Label TabIndex="250" DockPanel.Dock="Right" Padding="1,1,30,1">
+                            <Hyperlink Name="helpAppConfigReaderTypeName" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">App.config reader:</Label>
+                    </DockPanel>
+                    <TextBox x:Name="txtAppConfigReaderTypeName" Margin="0,0,0,10" IsReadOnly="True" Background="{x:Null}" TextChanged="txtAppConfigReaderTypeName_TextChanged" TabIndex="280" />
+
+                    <DockPanel>
+                        <Label TabIndex="310" DockPanel.Dock="Right" Padding="1,1,5,1">
+                            <Hyperlink Name="browseSchemaBuilderType" Click="browseSchemaBuilderType_Click">Browse...</Hyperlink>
+                        </Label>
+                        <Label TabIndex="300" DockPanel.Dock="Right" Padding="1,1,20,1">
+                            <Hyperlink Name="resetSchemaBuilderType" Click="resetSchemaBuilderType_Click">Reset</Hyperlink>
+                        </Label>
+                        <Label TabIndex="290" DockPanel.Dock="Right" Padding="1,1,30,1">
+                            <Hyperlink Name="helpSchemaBuilderTypeName" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">Schema builder:</Label>
+                    </DockPanel>
+                    <TextBox x:Name="txtSchemaBuilderTypeName" Margin="0,0,0,10" IsReadOnly="True" Background="{x:Null}" ScrollViewer.CanContentScroll="True" TextChanged="txtSchemaBuilderTypeName_TextChanged" TabIndex="320" />
+
+                    <DockPanel>
+                        <Label TabIndex="350" DockPanel.Dock="Right" Padding="1,1,5,1">
+                            <Hyperlink Name="browseDriverInitializerType" Click="browseDriverInitializerType_Click">Browse...</Hyperlink>
+                        </Label>
+                        <Label TabIndex="340" DockPanel.Dock="Right" Padding="1,1,20,1">
+                            <Hyperlink Name="resetDriverInitializerType" Click="resetDriverInitializerType_Click">Reset</Hyperlink>
+                        </Label>
+                        <Label TabIndex="330" DockPanel.Dock="Right" Padding="1,1,30,1">
+                            <Hyperlink Name="helpDriverInitializerTypeName" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">Driver initializer:</Label>
+                    </DockPanel>
+                    <TextBox x:Name="txtDriverInitializerTypeName" Margin="0,0,0,10" IsReadOnly="True" Background="{x:Null}" ScrollViewer.CanContentScroll="True" TextChanged="txtDriverInitializerTypeName_TextChanged" TabIndex="360" />
+
+                    <DockPanel>
+                        <Label TabIndex="380" DockPanel.Dock="Right" Padding="1,1,5,1">
+                            <Hyperlink Name="resetNamespaces" Click="resetNamespaces_Click">Reset</Hyperlink>
+                        </Label>
+                        <Label TabIndex="370" DockPanel.Dock="Right" Padding="1,1,20,1">
+                            <Hyperlink Name="helpNamespacesToAdd" Click="lnkDisplayHelp_Click">?</Hyperlink>
+                        </Label>
+                        <Label Padding="0,0,0,1">Additional namespaces:</Label>
+                    </DockPanel>
+                    <TextBox TabIndex="390" x:Name="txtNamespacesToAdd" Margin="0,0,0,30" IsReadOnly="False" Background="{x:Null}" MinLines="15" AcceptsReturn="True" AutoWordSelection="True" VerticalScrollBarVisibility="Auto" FontFamily="Courier New" MaxLines="15" FontSize="10" Height="120" />
+
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <CheckBox TabIndex="500" x:Name="checkPersist" Margin="5,20,0,0" Content="Remember this connection" />
+        <DockPanel LastChildFill="False" Margin="0,10,0,0">
+            <Button TabIndex="600" x:Name="btnTest" DockPanel.Dock="Left" Content="Test Connection" Margin="0,0,0,0" Padding="8,2" MinWidth="60" IsDefault="True" Click="btnTest_Click" Width="105" />
+            <Button TabIndex="700" x:Name="btnAbout" Content="About Driver" Width="105" Margin="5,0,0,0" Padding="8,2" Click="btnAbout_Click" />
+            <Button TabIndex="900" x:Name="btnCancel" DockPanel.Dock="Right" Content="Cancel" Margin="5,0,0,0" Padding="8,2" MinWidth="60" IsCancel="True" />
+            <Button TabIndex="800" x:Name="btnOK" DockPanel.Dock="Right" Content="OK" Margin="5,0,0,0" Padding="8,2" MinWidth="60" IsDefault="True" Click="btnOK_Click" />
+        </DockPanel>
+    </StackPanel>
+</Window>

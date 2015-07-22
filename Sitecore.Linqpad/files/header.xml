@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataContextDriver>
+  <MainAssembly>Sitecore.Linqpad.dll</MainAssembly>
+  <SupportUri>http://www.sitecore.net/Community/Technical-Blogs/Getting-to-Know-Sitecore</SupportUri>
+</DataContextDriver>

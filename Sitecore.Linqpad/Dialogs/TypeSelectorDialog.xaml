@@ -1,0 +1,26 @@
+﻿<Window x:Class="Sitecore.Linqpad.Dialogs.TypeSelectorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OpenTypeDialog" Height="330" MaxHeight="330" MinHeight="330" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel Margin="7" >
+            <DockPanel>
+                <Label DockPanel.Dock="Right" Padding="1">
+                    <Hyperlink Click="BrowseAssembly">Browse...</Hyperlink>
+                </Label>
+                <Label Padding="0,0,0,1">Assembly:</Label>
+            </DockPanel>
+            <TextBox Name="txtAssembly" IsReadOnly="True" Margin="0,0,0,6" Background="{x:Null}"/>
+
+            <DockPanel>
+                <Label Padding="0,0,0,1">Types:</Label>
+            </DockPanel>
+            <ListView Name="listTypes" Height="182" VerticalAlignment="Stretch" />
+
+            <DockPanel Margin="0,10,0,0" LastChildFill="False">
+                <Button Name="btnCancel" DockPanel.Dock="Right" Content="Cancel" Margin="5,0,0,0" Padding="8,2" MinWidth="60" IsCancel="True" TabIndex="2" />
+                <Button Name="btnOK" DockPanel.Dock="Right" Content="OK" Margin="5,0,0,0" Padding="8,2" MinWidth="60" IsDefault="True" TabIndex="1" Click="btnOK_Click" />
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>

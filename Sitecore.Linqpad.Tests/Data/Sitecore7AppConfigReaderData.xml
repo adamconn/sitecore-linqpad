@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <version>
+    <number>6.0</number>
+    <supported>false</supported>
+  </version>
+  <version>
+    <number>6.0.0.0</number>
+    <supported>false</supported>
+  </version>
+  <version>
+    <number>6.5.0.140101</number>
+    <supported>false</supported>
+  </version>
+  <version>
+    <number>9.0.0.0</number>
+    <supported>false</supported>
+  </version>
+  <version>
+    <number>8.0</number>
+    <supported>false</supported>
+  </version>
+  <version>
+    <number>7.0</number>
+    <supported>true</supported>
+  </version>
+  <webConfig>
+    <fileSystem>
+      <![CDATA[
+<configuration>
+  <connectionStrings configSource="[!!!THIS VALUE IS REPLACED IN THE TEST!!!]" /> 
+  <sitecore></sitecore>
+  <log4net>
+    <appender name="ap1"><encoding value="utf-8" /></appender>
+    <appender name="ap2"><encoding value="utf-8" /></appender>
+  </log4net>
+</configuration>
+      ]]>
+    </fileSystem>
+    <server>
+      <![CDATA[
+  <sitecore>
+    <pipelines>
+      <indexing.filterIndex.outbound>
+        <processor type="Sitecore.ContentSearch.Pipelines.IndexingFilters.ApplyOutboundSecurityFilter, Sitecore.ContentSearch"/>
+      </indexing.filterIndex.outbound>
+    </pipelines>
+    <configStores>
+      <add name="domains" type="Sitecore.Configuration.XmlConfigStore, Sitecore.Kernel" factoryMethod="LoadFromFile" arg0="/App_Config/Security/Domains.config" />
+      <add name="globalRoles" type="Sitecore.Configuration.XmlConfigStore, Sitecore.Kernel" factoryMethod="LoadFromFile" arg0="/App_Config/Security/GlobalRoles.config" />
+    </configStores>
+  </sitecore>
+      ]]>
+    </server>
+  </webConfig>
+</data>

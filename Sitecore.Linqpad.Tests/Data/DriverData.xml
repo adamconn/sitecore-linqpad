@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  
+  <empty>
+    <driverData><![CDATA[<DriverData />]]></driverData>
+  </empty>
+  <empty>
+    <driverData><![CDATA[<DriverData></DriverData>]]></driverData>
+  </empty>
+
+  <requiredSettings>
+    <driverData>
+      <![CDATA[
+        <DriverData clientUrl="http://sc80/sitecore" username="sitecore\admin" password="b" webRootPath="c:\Sitecore\sc80\Website">
+        </DriverData>
+      ]]>
+    </driverData>
+    <clientUrl>http://sc80/sitecore</clientUrl>
+    <username>sitecore\admin</username>
+    <password>b</password>
+    <webRootPath>c:\Sitecore\sc80\Website</webRootPath>
+    <contextdb>master</contextdb>
+  </requiredSettings>
+
+  <optionalSettings>
+    <driverData>
+      <![CDATA[
+        <DriverData clientUrl="http://sc80/sitecore" username="sitecore\admin" password="b" webRootPath="c:\Sitecore\sc80\Website">
+        </DriverData>
+      ]]>
+    </driverData>
+  </optionalSettings>
+
+  <nsSettings>
+    <driverData>
+      <![CDATA[
+        <DriverData clientUrl="http://sc80/sitecore" username="sitecore\admin" password="b" webRootPath="c:\Sitecore\sc80\Website">
+          <namespacesToAdd>
+            <namespace>Testing</namespace>
+            <namespace>System</namespace>
+            <namespace>System.Linq</namespace>
+            <namespace>Sitecore.ContentSearch</namespace>
+            <namespace>Sitecore.ContentSearch.SearchTypes</namespace>
+            <namespace>Sitecore.ContentSearch.Linq</namespace>
+            <namespace>Sitecore.Data</namespace>
+          </namespacesToAdd>
+        </DriverData>
+      ]]>
+    </driverData>
+    <count>7</count>
+  </nsSettings>
+  <nsSettings>
+    <driverData>
+      <![CDATA[
+        <DriverData clientUrl="http://sc80/sitecore" username="sitecore\admin" password="b" webRootPath="c:\Sitecore\sc80\Website">
+          <namespacesToAdd>
+            <namespace>System</namespace>
+          </namespacesToAdd>
+        </DriverData>
+      ]]>
+    </driverData>
+    <count>1</count>
+  </nsSettings>
+  <nsSettings>
+    <driverData>
+      <![CDATA[
+        <DriverData clientUrl="http://sc80/sitecore" username="sitecore\admin" password="b" webRootPath="c:\Sitecore\sc80\Website">
+          <namespacesToAdd>
+            <namespace>System</namespace>
+            <namespace>System</namespace>
+          </namespacesToAdd>
+        </DriverData>
+      ]]>
+    </driverData>
+    <count>1</count>
+  </nsSettings>
+
+</data>
