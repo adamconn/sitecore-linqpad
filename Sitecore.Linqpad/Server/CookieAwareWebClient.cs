@@ -21,6 +21,7 @@ namespace Sitecore.Linqpad.Server
             if (request2 != null)
             {
                 request2.CookieContainer = this.Cookies;
+                request2.AllowAutoRedirect = false;
             }
             webRequest.Timeout = 300000;
             return webRequest;
