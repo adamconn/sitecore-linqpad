@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using LINQPad.Extensibility.DataContext;
@@ -16,8 +17,12 @@ namespace Sitecore.Linqpad.SchemaBuilders
 {
     public class SitecoreSchemaBuilder : ISchemaBuilder
     {
+        protected IList<string> KnownPropertyNames;
+
         public virtual List<ExplorerItem> BuildAssembly(IConnectionInfo cxInfo, AssemblyName assemblyToBuild, ref string nameSpace, ref string typeName)
         {
+            KnownPropertyNames = new List<string>();
+
             var unit = new CodeCompileUnit();
             var namespace2 = new CodeNamespace(nameSpace);
             namespace2.Imports.Add(new CodeNamespaceImport("System"));
@@ -111,7 +116,7 @@ namespace Sitecore.Linqpad.SchemaBuilders
             CodeMemberProperty property = new CodeMemberProperty
             {
                 Attributes = MemberAttributes.Public | MemberAttributes.Final,
-                Name = name,
+                Name = this.GetCleanPropertyName(name),
                 HasGet = true,
                 Type = new CodeTypeReference(string.Format("IQueryable<{0}>", str))
             };
@@ -129,6 +134,27 @@ namespace Sitecore.Linqpad.SchemaBuilders
             property.GetStatements.Add(statement3);
             targetClass.Members.Add(property);
         }
+
+        protected string GetCleanPropertyName(string name)
+        {
+            name = Regex.Replace(name, "[^a-zA-Z0-9_]+", "_");
+            if (Regex.IsMatch(name, "^[0-9]"))
+            {
+                name = "index_" + name;
+            }
+
+            string newName = name;
+
+            for(int i = 1; KnownPropertyNames.Contains(newName); i++)
+            {
+                newName = name + i;
+            }
+
+            KnownPropertyNames.Add(newName);
+
+            return newName;
+        }
+
         protected virtual IQueryable<string> GetAssemblyFilesToReference(ISitecoreConnectionSettings settings)
         {
             var list = new List<Assembly> 
